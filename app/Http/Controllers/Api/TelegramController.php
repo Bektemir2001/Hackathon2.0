@@ -43,7 +43,6 @@ class TelegramController extends Controller
     public function getPopularMessages()
     {
         $result = $this->popularMessagesService->get();
-        dd($result);
         return response($result);
     }
 }
