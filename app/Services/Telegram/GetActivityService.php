@@ -21,8 +21,10 @@ class GetActivityService extends Telegram
             $response = $this->client->get(env('TELEGRAM_LINK') . 'getUpdates');
             $result = json_decode($response->getBody(), true);
             $data = $result['result'];
+
             $groupedData = collect($data)->groupBy(function ($item) {
                 $arr = array_values($item);
+
                 if (!array_key_exists('date', $arr[1])) {
                     return null;
                 }

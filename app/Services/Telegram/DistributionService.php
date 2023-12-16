@@ -4,10 +4,11 @@ namespace App\Services\Telegram;
 
 class DistributionService extends Telegram
 {
-    public function distribution()
+    public function distribution($data)
     {
-        $data = ["mamatazimov_a" => 1, "Programmer_ml" => 1];
-        $text = "Hello World";
+        $text = $data['text'];
+        $data = $data['users'];
+
         try{
             $response = $this->client->get(env('TELEGRAM_LINK') . 'getUpdates');
             $result = json_decode($response->getBody(), true);

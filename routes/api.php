@@ -21,4 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/telegram', [TelegramController::class, 'getActivity']);
 Route::get('/telegram/set_webhook', [TelegramController::class, 'setWebhook']);
-Route::get('/telegram/distribution', [TelegramController::class, 'distribution']);
+Route::post('/telegram/distribution', [TelegramController::class, 'distribution']);
+Route::get('/telegram/get/popular/messages', [TelegramController::class, 'getPopularMessages']);
