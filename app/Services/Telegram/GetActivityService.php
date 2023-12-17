@@ -15,7 +15,7 @@ class GetActivityService extends Telegram
         try{
             $currentDateTime = Carbon::now();
             $last24Hours = [];
-            for ($i = 23; $i >= 0; $i--) {
+            for ($i = 15; $i >= 0; $i--) {
                 $last24Hours[$currentDateTime->copy()->subHours($i)->format('Y-m-d H')] = 0;
             }
             $response = $this->client->get(env('TELEGRAM_LINK') . 'getUpdates');
